@@ -39,6 +39,12 @@
 			Console.WriteLine("6. feladat");
 
 			KarakterStats(karakterek,5);
+
+
+			Console.WriteLine();
+			Console.WriteLine("8. feladat");
+
+			LegnagyobbHarom(karakterek);
 		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
@@ -129,6 +135,33 @@
                 }
 			}
 		}
+
+		//7.feladat nem kell
+
+
+		static void LegnagyobbHarom(List<Karakter> karakterek)
+		{
+			for (int i = 0; i < karakterek.Count - 1; i++)
+			{
+				for (int j = i + 1; j < karakterek.Count; j++)
+				{
+
+					
+					if (karakterek[i].Ero > karakterek[j].Ero)
+					{
+						Karakter valt = karakterek[i];
+						karakterek[i] = karakterek[j];
+						karakterek[j] = valt;
+					}
+				}
+			}
+            Console.WriteLine("A legjobb három: ");
+            for (int i = 0;i < 3; i++)
+			{
+                Console.WriteLine(karakterek[i]);
+            }
+		}
+
 	}
 }
 
