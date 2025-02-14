@@ -28,6 +28,11 @@
 			Console.WriteLine("4. feladat");
 
 			EroRendez(karakterek);
+
+			Console.WriteLine();
+			Console.WriteLine("5. feladat");
+
+			NagyobbE(karakterek);
 		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
@@ -93,6 +98,17 @@
 			{
 				Console.WriteLine(item);
             }
+		}
+
+		static void NagyobbE(List<Karakter> karakterek)
+		{
+			for (int i =0; i<karakterek.Count; i++)
+			{
+				if (karakterek[i].Ero > 50)
+				{
+					Console.WriteLine(karakterek[i]);
+                }
+			}
 		}
 	}
 }
