@@ -17,7 +17,12 @@
             Console.WriteLine("2. feladat");
 
             Legtobb(karakterek);
-		}
+
+            Console.WriteLine();
+            Console.WriteLine("3. feladat");
+
+			AtlagSzint(karakterek);
+        }
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
 		{
@@ -50,5 +55,19 @@
 			}
 				Console.WriteLine($"Legmagasabb életerővel rendelkező karakter: {valtozo.Nev}, {valtozo.Szint}, {valtozo.Ero}");
 		}
+
+		static void AtlagSzint(List<Karakter> karakterek)
+		{
+			float atlag = 0;
+
+			for (int i = 0; i < karakterek.Count; ++i)
+			{
+				atlag += karakterek[i].Szint;
+			}
+
+
+            Console.WriteLine(atlag/karakterek.Count);
+        }
 	}
 }
+
