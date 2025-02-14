@@ -33,6 +33,12 @@
 			Console.WriteLine("5. feladat");
 
 			NagyobbE(karakterek);
+
+
+			Console.WriteLine();
+			Console.WriteLine("6. feladat");
+
+			KarakterStats(karakterek,5);
 		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
@@ -107,6 +113,19 @@
 				if (karakterek[i].Ero > 50)
 				{
 					Console.WriteLine(karakterek[i]);
+                }
+			}
+		}
+
+		static void KarakterStats(List<Karakter> karakterek, int szint)
+		{
+            Console.WriteLine($"A nagyobb szintek {szint}-nél: ");
+
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				if (karakterek[i].Szint > szint)
+				{
+                    Console.WriteLine(karakterek[i]);
                 }
 			}
 		}
