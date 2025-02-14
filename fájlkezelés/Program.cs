@@ -22,7 +22,13 @@
             Console.WriteLine("3. feladat");
 
 			AtlagSzint(karakterek);
-        }
+
+
+			Console.WriteLine();
+			Console.WriteLine("4. feladat");
+
+			EroRendez(karakterek);
+		}
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
 		{
@@ -68,6 +74,26 @@
 
             Console.WriteLine(atlag/karakterek.Count);
         }
+
+		static void EroRendez(List<Karakter> karakterek)
+		{
+			for (int i = 0;i < karakterek.Count-1; i++)
+			{
+				for (int  j = i+1; j<karakterek.Count; j++)
+				{
+					if (karakterek[i].Ero > karakterek[j].Ero)
+					{
+						Karakter valt = karakterek[i];
+						karakterek[i] = karakterek[j];
+						karakterek[j] = valt;
+					}
+				}
+			}
+			foreach(var item in karakterek)
+			{
+				Console.WriteLine(item);
+            }
+		}
 	}
 }
 
