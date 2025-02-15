@@ -1,4 +1,6 @@
-﻿namespace fájlkezelés
+﻿using System.Data;
+
+namespace fájlkezelés
 {
 	internal class Program
 	{
@@ -44,11 +46,12 @@
 			Console.WriteLine();
 			Console.WriteLine("8. feladat");
 
-			LegnagyobbHarom(karakterek);
+			LegnagyobbHarom(karakterek.ToList());
 
 
 			Console.WriteLine();
 			Console.WriteLine("9. feladat");
+            Console.WriteLine("Rangsorolva életrő és erő alapján");
 
 			RangsorKarak(karakterek);
 
@@ -56,7 +59,7 @@
             Console.WriteLine();
             Console.WriteLine("10. feladat");
 
-            RangsorKarak(karakterek);
+            Csata(karakterek,4,30);
         }
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
@@ -126,12 +129,20 @@
 
 		static void NagyobbE(List<Karakter> karakterek)
 		{
-			for (int i =0; i<karakterek.Count; i++)
+            Console.WriteLine("Aki elérték az 51es erőt: ");
+			bool szinteleres = false;
+			for (int i = 0; i < karakterek.Count; i++)
 			{
 				if (karakterek[i].Ero > 50)
 				{
-					Console.WriteLine(karakterek[i]);
-                }
+					szinteleres = true;
+					Console.WriteLine($"{karakterek[i].Nev} elérte az erősséget");
+				}
+				else
+				{
+					szinteleres = false;
+                    Console.WriteLine($"{karakterek[i].Nev} nem érte el az erősséget");
+				}
 			}
 		}
 
@@ -204,6 +215,23 @@
 			foreach (var item in karakterek)
 			{
 				Console.WriteLine(item);
+			}
+		}
+
+		static void Csata(List<Karakter> karakterek, int ellenszint, int ellenero)
+		{
+            Console.WriteLine("A csata eredményei:");
+
+			for (int i = 0;	i < karakterek.Count; i++)
+			{
+				if (karakterek[i].Szint>ellenszint && karakterek[i].Ero > ellenero)
+				{
+					Console.WriteLine($"{karakterek[i].Nev} sikeresen átvészelte a csatát");
+				}
+				else
+				{
+                    Console.WriteLine($"{karakterek[i].Nev} meghalt a csata során");
+				}
 			}
 		}
 
