@@ -45,7 +45,19 @@
 			Console.WriteLine("8. feladat");
 
 			LegnagyobbHarom(karakterek);
-		}
+
+
+			Console.WriteLine();
+			Console.WriteLine("9. feladat");
+
+			RangsorKarak(karakterek);
+
+
+            Console.WriteLine();
+            Console.WriteLine("10. feladat");
+
+            RangsorKarak(karakterek);
+        }
 
 		static void Beolvasas(string fajlnev, List<Karakter> karakterek )
 		{
@@ -147,7 +159,7 @@
 				{
 
 					
-					if (karakterek[i].Ero > karakterek[j].Ero)
+					if (karakterek[i].SzintesEro > karakterek[j].SzintesEro)
 					{
 						Karakter valt = karakterek[i];
 						karakterek[i] = karakterek[j];
@@ -161,6 +173,41 @@
                 Console.WriteLine(karakterek[i]);
             }
 		}
+
+
+
+
+
+		static void Kombinacio(List<Karakter> karakterek)
+		{
+			foreach(var item in karakterek)
+			{
+                Console.WriteLine(item.Kombinacio);
+            }
+		}
+
+
+		static void RangsorKarak(List<Karakter> karakterek)
+		{
+			for (int i = 0; i < karakterek.Count - 1; i++)
+			{
+				for (int j = i + 1; j < karakterek.Count; j++)
+				{
+					if (karakterek[i].Kombinacio > karakterek[j].Kombinacio)
+					{
+						Karakter valt = karakterek[i];
+						karakterek[i] = karakterek[j];
+						karakterek[j] = valt;
+					}
+				}
+			}
+			foreach (var item in karakterek)
+			{
+				Console.WriteLine(item);
+			}
+		}
+
+
 
 	}
 }

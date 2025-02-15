@@ -28,6 +28,22 @@ namespace fájlkezelés
 		public int Ero { get => ero; set => ero = value; }
 
 
+		public int Kombinacio
+		{
+			get
+			{
+				return this.eletero + this.ero;
+			}
+		}
+
+		public int SzintesEro
+		{
+			get
+			{
+				return this.ero+this.szint;
+			}
+		}
+
 		public override string ToString()
 		{
 			return $" neve: {nev} - szint:{szint} / eletereje: {eletero} / ereje: {ero}";
